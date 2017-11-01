@@ -447,7 +447,7 @@ troubleshooting** blade.
 1. Click on the **Deploy to Azure** button to begin the first stage of the deployment. The link takes you to the Azure Portal.
 2. Select **Create New** and enter a value such as `uk-official-adds-rg` in the **Resource group** textbox.
 3. Select a region such as `UKSouth` from the **Location** drop down box (All Resource Groups required for this architecture should be in the same Azure region e.g. `UKSouth`.
-4. Some parameters can be edited in the deployment page. If greater customisation is requried this can be down through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
+4. Some parameters can be edited in the deployment page. If greater customisation is required this can be down through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
 5. In the **Settings** textboxes, enter the networking resource group as entered when creating the networking infrastructure in deployment step 1.
 6. Enter the Domain settings and Admin credentials.
 7. Review the terms and conditions, then click the **I agree to the terms and conditions stated above* checkbox.
