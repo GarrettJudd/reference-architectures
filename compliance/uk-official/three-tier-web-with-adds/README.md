@@ -42,7 +42,7 @@ Overview
 
  This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured.
 
- If you do not have an Azure subscription then you can sign up quickly and easily, ([Get Started with Azure](https://azure.microsoft.com/en-us/get-started/)).
+ If you do not have an Azure subscription then you can sign up quickly and easily - [Get Started with Azure](https://azure.microsoft.com/en-us/get-started/).
 
 
 Architecture Diagram and Components
@@ -57,40 +57,40 @@ Architecture Diagram and Components
 ![alt text](images/diagram.png?raw=true "Azure UK-OFFICAL Three Tier Architecture")
 
 
- The components of this architecture include -
+ The components of this architecture include:
 
-1.  **On-premises network**. A private local-area network implemented in an organization.
+1.  **On-Premises Network**: A private local-area network implemented in an organization.
 
-2.  **Production VNet**. The Production [VNet](https://docs.microsoft.com/en-us/azure/Virtual-Network/virtual-networks-overview) (Virtual Network) hosts the application and other operational resources running in Azure. Each VNet may contain several subnets which are used for isolating and managing network traffic.
+2.  **Production VNet**: The Production [VNet](https://docs.microsoft.com/en-us/azure/Virtual-Network/virtual-networks-overview) (Virtual Network) hosts the application and other operational resources running in Azure. Each VNet may contain several subnets which are used for isolating and managing network traffic.
 
-3.  **Web tier.** Handles incoming HTTP requests. Responses are returned through this tier.
+3.  **Web Tier**: Handles incoming HTTP requests. Responses are returned through this tier.
 
-4.  **Business tier:** Implements business processes and other functional logic for the system.
+4.  **Business Tier**: Implements business processes and other functional logic for the system.
 
-5.  **Database tier:** Provides persistent data storage, using [SQL Server Always On Availability Groups](https://msdn.microsoft.com/en-us/library/hh510230.aspx) for high availability. Customers may wish to consider using [Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-technical-overview) as a PaaS alternative
+5.  **Database Tier**: Provides persistent data storage, using [SQL Server Always On Availability Groups](https://msdn.microsoft.com/en-us/library/hh510230.aspx) for high availability. Customers may wish to consider using [Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-technical-overview) as a PaaS alternative
 
 6.  **Gateway**: The [VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways) provides connectivity between the routers in the on-premises network and the Production VNet.
 
 7.  **Internet Gateway and Public IP Address**: The internet gateway exposes application services to users through the internet. Traffic accessing these services is secured using an [Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction) offering Layer 7 routing and load balancing capabilities with web application firewall (WAF) protection.
 
-8.  **Management VNet:** This [VNet](https://docs.microsoft.com/en-us/azure/Virtual-Network/virtual-networks-overviewcontains) contains resources that implement management and monitoring capabilities for the workloads running in the Production VNet.
+8.  **Management VNet**: This [VNet](https://docs.microsoft.com/en-us/azure/Virtual-Network/virtual-networks-overviewcontains) contains resources that implement management and monitoring capabilities for the workloads running in the Production VNet.
 
-9.  **Jumpbox.** Also, called a [bastion host](https://en.wikipedia.org/wiki/Bastion_host). A secure VM on the network that administrators use to connect to VMs in the Production VNet. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic. Management of production resources is via RDP using a secured Jumpbox VM.
+9.  **Jumpbox**: Also, called a [bastion host](https://en.wikipedia.org/wiki/Bastion_host). A secure VM on the network that administrators use to connect to VMs in the Production VNet. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic. Management of production resources is via RDP using a secured Jumpbox VM.
 
-10. **User defined routes (UDR)**. [User defined routes](https://docs.microsoft.com/en-gb/azure/virtual-network/virtual-networks-udr-overview) are used to define the flow of IP traffic within Azure VNets.
+10. **User Defined Routes**: [User defined routes](https://docs.microsoft.com/en-gb/azure/virtual-network/virtual-networks-udr-overview) are used to define the flow of IP traffic within Azure VNets.
 
-11. **Network Peered VNETs:** The Production and Management VNets are connected using [VNet Peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)**.**
+11. **Network Peered VNETs**: The Production and Management VNets are connected using [VNet Peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)**.**
      They are still managed as separate resources, but appear as one for all connectivity purposes with virtual machines in these networks able to communicate with each other directly by using private IP addresses. VNet peering is subject to the VNets being in the same Azure Region
 
-12. **Network Security Groups:** [NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or Deny traffic within a VNet. NSGs can be used to secure traffic at a subnet or individual VM level.
+12. **Network Security Groups**: [NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or Deny traffic within a VNet. NSGs can be used to secure traffic at a subnet or individual VM level.
 
-13. **Active Directory Domain Services (AD DS):** This architecture provides a dedicated [Active Directory](https://msdn.microsoft.com/library/azure/jj156090.aspx) [Active Directory Domain Services](https://technet.microsoft.com/library/dd448614.aspx) deployment.
+13. **Active Directory Domain Services (AD DS)**: This architecture provides a dedicated [Active Directory](https://msdn.microsoft.com/library/azure/jj156090.aspx) [Active Directory Domain Services](https://technet.microsoft.com/library/dd448614.aspx) deployment.
 
-14. **Logging and Audit:** [Azure Activity Log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) captures operations
+14. **Logging and Audit**: [Azure Activity Log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) captures operations
 taken on the resources in your subscription such as who initiated the operation, when the operation occurred, the status of the operation and the values of other properties that might help you research the operation.
 Azure Activity Log is an Azure platform service that captures all actions on a subscription. Logs can be archived or exported if requried.
 
-15. **Network Monitoring and Alerting** [Azure Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) is a platform service provides network packet capture, flow logging, topology tools and diagnostics  for network traffics within your VNets.
+15. **Network Monitoring and Alerting**: [Azure Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) is a platform service provides network packet capture, flow logging, topology tools and diagnostics  for network traffics within your VNets.
 
 
 Guidance and Recommendations
@@ -99,7 +99,7 @@ Guidance and Recommendations
 
 ### Business continuity
 
-> **High Availability:** Server workloads are grouped in a [Availability
+> **High Availability**: Server workloads are grouped in a [Availability
 > Set](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > to ensure high availability of virtual machines in Azure. This
 > configuration ensures that during a planned or unplanned maintenance
@@ -121,23 +121,23 @@ Guidance and Recommendations
 > to provide insight into the operations that were performed on
 > resources in your subscription.
 >
-> **Diagnostic Logs:** [Diagnostic
+> **Diagnostic Logs**: [Diagnostic
 > Logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 > are all logs emitted by a resource. These logs could include Windows
 > event system logs, blob, table, and queue logs.
 >
-> **Firewall Logs:** Application Gateway provides full diagnostics and
+> **Firewall Logs**: Application Gateway provides full diagnostics and
 > access logs. Firewall logs are available for application gateway
 > resources that have WAF enabled.
 >
-> **Log Archiving:** Logs storage can be configured to write to a
+> **Log Archiving**: Logs storage can be configured to write to a
 > centralised Azure storage account for archival and a defined retention
 > period. Logs can be processed using Azure Log Analytics or by third
 > party SIEM systems
 
 ### Identity
 
-> **Active Directory Domain Services:** This architecture delivers an
+> **Active Directory Domain Services**: This architecture delivers an
 > Active Directory Domain Services deployment in Azure w For
 > specific recommendations on implementing Active Directory in Azure,
 > see the following articles -
@@ -149,7 +149,7 @@ Guidance and Recommendations
 > Virtual
 > Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 >
-> **Active Directory Integration:** As an alternative to a dedicated AD
+> **Active Directory Integration**: As an alternative to a dedicated AD
 > DS architecture, customers may wish to use [Azure Active
 > Directory](https://docs.microsoft.com/en-gb/azure/guidance/guidance-ra-identity#using-azure-active-directory)
 > integration or [Active Directory in Azure joined to an on-premises
@@ -157,7 +157,7 @@ Guidance and Recommendations
 
 ### Security
 
-> **Management Security:** This pattern allows administrators to connect
+> **Management Security**: This pattern allows administrators to connect
 > to the management VNET and Jumpbox using RDP from a trusted source.
 > Network traffic for the management VNET is controlled using NSGs to
 > restrict access port 3389 to only traffic from a trusted IP range
@@ -172,25 +172,25 @@ Guidance and Recommendations
 > and RDGateway configuration. The use of Network Virtual Appliances and
 > public/private DMZs will offer further security enhancements.
 >
-> **Securing the network:** [Network Security
+> **Securing the network**: [Network Security
 > Groups](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg)
 > (NSG) are recommended for each subnet to provide a second level of
 > protection against inbound traffic bypassing an incorrectly configured
 > or disabled gateway. Example - [ARM Template for deploying an
 > NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 >
-> **Securing public endpoints:** The internet gateway exposes
+> **Securing public endpoints**: The internet gateway exposes
 > application services to users through the internet. Traffic accessing
 > these services is secured using an [Application
 > Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction)
 > which provides a Web Application Firewall and HTTPS protocol
 > management
 >
-> **IP Ranges:** The IP ranges in the architecture are suggested ranges,
+> **IP Ranges**: The IP ranges in the architecture are suggested ranges,
 > customers are advised to consider their own environment and use
 > appropriate ranges.
 >
-> **Hybrid connectivity:** The cloud based workloads are connected to
+> **Hybrid connectivity**: The cloud based workloads are connected to
 > the on-premises datacentre through IPSEC VPN using the Azure VPN
 > Gateway. Customers should ensure that they are using an appropriate
 > VPN Gateway to connect to Azure. Example [VPN Gateway ARM
@@ -199,7 +199,7 @@ Guidance and Recommendations
 > [ExpressRoute](https://docs.microsoft.com/en-gb/azure/guidance/guidance-hybrid-network-expressroute)
 > to ensure private network connectivity to Microsoft cloud services
 >
-> **Separation of concerns:** This pattern separates the VNets for
+> **Separation of concerns**: This pattern separates the VNets for
 > Management operations and business operations. Separate VNets and
 > subnets allow traffic management and traffic ingress and egress
 > restriction using NSGs between network segments following [Microsoft cloud services and network security](https://docs.microsoft.com/en-gb/azure/best-practices-network-security)
@@ -211,7 +211,7 @@ Guidance and Recommendations
 > Resource Based Access Control roles can then be assigned to each
 > resource group to restrict access to only authorized users.
 >
-> **Access control restrictions:** Use [Role-Based Access
+> **Access control restrictions**: Use [Role-Based Access
 > Control](https://docs.microsoft.com/en-gb/azure/active-directory/role-based-access-control-configure)
 > (RBAC) to manage the resources in your application using [custom
 > roles](https://docs.microsoft.com/en-gb/azure/active-directory/role-based-access-control-custom-roles)
@@ -224,7 +224,7 @@ Guidance and Recommendations
 > [Azure Application
 > Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction).
 >
-> **Azure Security Center:** The [Azure Security
+> **Azure Security Center**: The [Azure Security
 > Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
 > provides a central view of the security status of resources in the
 > subscriptions, and provides recommendations that help prevent
