@@ -13,7 +13,7 @@ Contents
 	- [Security](#security)
 - [NCSC Security Matrix Compliance](#ncsc-security-matrix-compliance)
 - [Deployment Guide](#deployment-guide)
-- [Deployment and Configuration Activities](#deployment-and-configuration-activities) 
+- [Deployment and Configuration Activities](#deployment-and-configuration-activities)
 	- [Deployment Process](#deployment-process)
 	- [Deploy Networking Infrastructure](#deploy-networking-infrastructure)
 	- [Deploy Active Directory Domain](#deploy-active-directory-domain)
@@ -37,12 +37,12 @@ Overview
  The NCSC recommend their Cloud Security Principles be used by customers to evaluate the security properties of the service, and to help understand the division of responsibility between the customer and supplier. We’ve provided information against each of these principles to help you understand the split of responsibilities.
 
  This architecture and corresponding ARM templates are supported by the Microsoft whitepaper, [Azure Blueprint for the UK Government](https://aka.ms/azureblueprintukg-cloud). This paper catalogues how Azure services align with the fourteen
- cloud security principles set forth in the CESG/NCSC publication, [Implementing the Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)"
+ cloud security principles set forth in the CESG/NCSC publication, [Implementing the Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles).
  thereby enabling organisations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
 
  This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured.
 
- If you do not have an Azure subscription then you can sign up quickly and easily, [Get Started with Azure](https://azure.microsoft.com/en-us/get-started/).
+ If you do not have an Azure subscription then you can sign up quickly and easily, ([Get Started with Azure](https://azure.microsoft.com/en-us/get-started/)).
 
 
 Architecture Diagram and Components
@@ -86,14 +86,14 @@ Architecture Diagram and Components
 
 13. **Active Directory Domain Services (AD DS):** This architecture provides a dedicated [Active Directory](https://msdn.microsoft.com/library/azure/jj156090.aspx) [Active Directory Domain Services](https://technet.microsoft.com/library/dd448614.aspx) deployment.
 
-14. **Logging and Audit:** [Azure Activity Log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) captures operations 
-taken on the resources in your subscription such as who initiated the operation, when the operation occurred, the status of the operation and the values of other properties that might help you research the operation. 
+14. **Logging and Audit:** [Azure Activity Log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) captures operations
+taken on the resources in your subscription such as who initiated the operation, when the operation occurred, the status of the operation and the values of other properties that might help you research the operation.
 Azure Activity Log is an Azure platform service that captures all actions on a subscription. Logs can be archived or exported if requried.
 
-15. **Network Monitoring and Alerting** [Azure Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) is a platform service provides network packet capture, flow logging, topology tools and diagnostics  for network traffics within your VNets. 
+15. **Network Monitoring and Alerting** [Azure Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) is a platform service provides network packet capture, flow logging, topology tools and diagnostics  for network traffics within your VNets.
 
 
-Guidance and Recommendations 
+Guidance and Recommendations
 =============================
 
 
@@ -135,7 +135,7 @@ Guidance and Recommendations
 > period. Logs can be processed using Azure Log Analytics or by third
 > party SIEM systems
 
-### Identity 
+### Identity
 
 > **Active Directory Domain Services:** This architecture delivers an
 > Active Directory Domain Services deployment in Azure w For
@@ -155,7 +155,7 @@ Guidance and Recommendations
 > integration or [Active Directory in Azure joined to an on-premises
 > forest](https://docs.microsoft.com/en-gb/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
 
-### Security 
+### Security
 
 > **Management Security:** This pattern allows administrators to connect
 > to the management VNET and Jumpbox using RDP from a trusted source.
@@ -253,93 +253,93 @@ NCSC Security Matrix Compliance
  The following matrix provides a high level alignment of the 14 cloud security principles the Microsoft Azure security model, a detailed
  mapping of the 14 principles can be found in Microsoft's [Azure Blueprint for the UK Government](https://aka.ms/azureblueprintukg-cloud)
  whitepaper.
- 
+
  ---
 
-*Data in transit protection:* Consumer data transiting networks should be adequately protected against tampering and eavesdropping via 
+*Data in transit protection:* Consumer data transiting networks should be adequately protected against tampering and eavesdropping via
 a combination of network protection and encryption.
-> Azure uses the industry-standard Transport Layer Security (TLS) 1.2 protocol with 2048-bit RSA/SHA256 encryption keys to encrypt 
+> Azure uses the industry-standard Transport Layer Security (TLS) 1.2 protocol with 2048-bit RSA/SHA256 encryption keys to encrypt
 communication internally and between customers and the cloud.
 
-*Asset protection and resilience:* Consumer data, and the assets that store or process it, should be protected against physical 
+*Asset protection and resilience:* Consumer data, and the assets that store or process it, should be protected against physical
 tampering, loss, damage, and seizure.
 > Most Azure services are deployed regionally, and customers can configure certain Azure services to store customer data only in a single region. Each facility is designed to run 24x7x365 and employs various industry-standard measures to help protect operations from power failure, physical intrusion, and network outages.
-> These datacenters comply with industry standards (such as ISO 27001) for physical security and availability. They are managed, monitored, and administered by Microsoft operations personnel. Azure offers a wide range of encryption capabilities, giving customers the flexibility to choose the solution that best meets their needs. 
-> When customers delete data or leave Azure, Microsoft follows strict standards for overwriting storage resources before reuse.Upon a system's end-of-life, 
+> These datacenters comply with industry standards (such as ISO 27001) for physical security and availability. They are managed, monitored, and administered by Microsoft operations personnel. Azure offers a wide range of encryption capabilities, giving customers the flexibility to choose the solution that best meets their needs.
+> When customers delete data or leave Azure, Microsoft follows strict standards for overwriting storage resources before reuse.Upon a system's end-of-life,
 > Microsoft operational personnel follow rigorous data handling procedures and hardware disposal processes to help assure that no hardware that may contain customer data is made available to untrusted parties.                                                                                                                                                                                                                                         
 > To ensure data resiliency Azure asynchronously replicates data from a primary location to a secondary location within the same region.
 > For applications resiliency, Microsoft Azure patterns ensure that at least one virtual machine will be available and meet the 99.95% Azure SLA.
 
 *Separation between consumers:* Separation should exist between different consumers of the service to prevent one malicious or compromised consumer from affecting the service or data of another.
-> Because all customer cloud servers are virtual, the physical separation paradigm no longer applies. 
-> Microsoft Azure was designed to help identify and counter risks inherent in a multitenant environment. 
+> Because all customer cloud servers are virtual, the physical separation paradigm no longer applies.
+> Microsoft Azure was designed to help identify and counter risks inherent in a multitenant environment.
 > Data storage and processing is logically segregated among consumers of Azure using Active Directory and functionality specifically
-> developed for multitenant services, which aims to ensure that consumer data stored in shared Azure data centers is not accessible by 
+> developed for multitenant services, which aims to ensure that consumer data stored in shared Azure data centers is not accessible by
 > another organisation.
 
-*Governance framework:* The service provider should have a security governance framework that coordinates and directs their overall 
+*Governance framework:* The service provider should have a security governance framework that coordinates and directs their overall
   approach to the management of the service and information within it.
 > The Microsoft compliance framework includes the following activities:
-                                                                                                                                                                                                                                               
+
 > 1.  Identify and integrate requirements
-                                                                                                                                                                                                                                               
+
 > 2.  Assess and remediate gaps.
-                                                                                                                                                                                                                                               
+
 > 3.  Test effectiveness and assess risk.
-                                                                                                                                                                                                                                               
+
 > 4.  Attain certification and attestations.
-                                                                                                                                                                                                                                               
+
 > 5.  Improve and optimize.
-                                                                                                                                                                                                                                               
+
 *Operational security:* The service provider should have processes and procedures in place to ensure the operational security of the service.
-> Operational Security Assurance (OSA) is a framework that incorporates the knowledge gained through a variety of resources that are unique to Microsoft, 
-> such as the Microsoft Security Response Center (MSRC), and incorporates deep awareness of the cybersecurity threat landscape. 
-> OSA helps make Microsoft cloud-based services' infrastructure more resilient to attack by decreasing the amount of time needed to prevent, detect, contain 
+> Operational Security Assurance (OSA) is a framework that incorporates the knowledge gained through a variety of resources that are unique to Microsoft,
+> such as the Microsoft Security Response Center (MSRC), and incorporates deep awareness of the cybersecurity threat landscape.
+> OSA helps make Microsoft cloud-based services' infrastructure more resilient to attack by decreasing the amount of time needed to prevent, detect, contain
 > and respond to real and potential Internet-based security threats, thereby increasing the security of those services for customers.
 
 *Personnel security:* Service provider staff should be subject to personnel security screening and security education appropriate for their role.
 > Microsoft Azure Operations and Customer Support personnel and data center staff, who operate Azure services and provide customer support (or Microsoft subcontractors
-> who assist with platform operations, troubleshooting, and technical support) undergo a Microsoft standard background (or equivalent) check to evaluate employee 
-> education, employment, and criminal history. The background checks that are carried out are broadly in line with the requirements of the UK Government's 
+> who assist with platform operations, troubleshooting, and technical support) undergo a Microsoft standard background (or equivalent) check to evaluate employee
+> education, employment, and criminal history. The background checks that are carried out are broadly in line with the requirements of the UK Government's
 > BPSS / BS7858. They do not specifically include a formal identity check.
 
 *Secure development:* Services should be designed and developed to identify and mitigate threats to their security.
 > The Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl/default.aspx) (SDL) provides an effective threat-modelling process to identify
->  threats and vulnerabilities in software and services. The STRIDE system (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, and 
+>  threats and vulnerabilities in software and services. The STRIDE system (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, and
 > Elevation of privilege) is used to help identify and resolve security threats early in the design process, before they can affect customers.
 
-*Supply chain security:* The service provider should ensure that its supply chain satisfactorily supports all of the security principles that the service 
+*Supply chain security:* The service provider should ensure that its supply chain satisfactorily supports all of the security principles that the service
 claims to implement.|                                                           
 > In Azure, security risks that relate to external parties, such as customers and vendors, are identified and addressed as follows:
-                                                                                                                                                                                                                                               
+
 > 1.  Third parties undergo a review process and an approved vendor list is established and used. These vendors are required to comply with Microsoft security policies and are audited.
-                                                                                                                                                                                                                                               
+
 > 2.  Additional risks that relate to granting access to facilities and information systems are controlled and managed by Microsoft teams, including physical and network level access to facilities and Microsoft resources.
-                                                                                                                                                                                                                                               
+
 *Secure consumer management:* Consumers should be provided with the tools required to help them securely manage their service.
-> Customers administer their Azure resources through the Azure portal, which provides access to all virtual machines, databases, cloud services, and 
-> other resources configured for the customer's account. Web access to the Azure portal is secured by industry-standard Transport Layer Security (TLS) 1.2 
-> connections using 2048-bit RSA/SHA256 encryption keys, as recommended by CESG/NCSC . Role-based access controls are provided to enable customers to provide 
+> Customers administer their Azure resources through the Azure portal, which provides access to all virtual machines, databases, cloud services, and
+> other resources configured for the customer's account. Web access to the Azure portal is secured by industry-standard Transport Layer Security (TLS) 1.2
+> connections using 2048-bit RSA/SHA256 encryption keys, as recommended by CESG/NCSC . Role-based access controls are provided to enable customers to provide
 > limited access to Azure management resources for specific users and groups.
-                                                                                                                                                                                                                                               
+
 *Identity and authentication* Access to all service interfaces (for consumers and providers) should be limited to authenticated and authorised individuals.
 > Azure provides services to help track identity as well as integrate it with identity stores that may already be in use. Azure AD is a comprehensive identity and access management service for the cloud that helps secure access to data in on-premises and cloud applications.
 
-*External interface protection:* All external or less trusted interfaces of the service should be identified and have appropriate protections to defend against 
+*External interface protection:* All external or less trusted interfaces of the service should be identified and have appropriate protections to defend against
 attacks through them.
 > Microsoft employs a method it calls 'Red Teaming' to improve Azure security controls and processes through regular penetration testing.
 
-*Secure service administration:* The methods used by the service providers administrators to manage the operational service should be designed to mitigate 
+*Secure service administration:* The methods used by the service providers administrators to manage the operational service should be designed to mitigate
 any risk of exploitation that could undermine the security of the service.
 > Azure infrastructure operations personnel are required to use secure admin workstations (SAWs; also known as privileged access workstations, or PAWs). The SAW approach is an extension of the well-established recommended practice to use separate admin and user accounts for administrative personnel.
 
 *Audit information provision to consumers:* Consumers should be provided with the audit records they need to monitor access to their service and the data held within it.
 > Azure Log Analytics collects records of the events occurring within an organisation's systems and networks as soon as they occur, before anyone can tamper with them, and allows different types of analysis by correlating data across multiple computers.
 
-*Secure use of the service by the consumer:* Consumers have certain responsibilities when using a cloud service in order for this use to remain secure, and for their 
+*Secure use of the service by the consumer:* Consumers have certain responsibilities when using a cloud service in order for this use to remain secure, and for their
 data to be adequately protected.
-> Azure Security Center helps consumers prevent, detect, and respond to threats with increased visibility into and control over the security of their Azure resources. 
-> It provides integrated security monitoring and policy management across Azure subscriptions, helps detect threats that might otherwise go unnoticed, 
+> Azure Security Center helps consumers prevent, detect, and respond to threats with increased visibility into and control over the security of their Azure resources.
+> It provides integrated security monitoring and policy management across Azure subscriptions, helps detect threats that might otherwise go unnoticed,
 > and works with a broad ecosystem of security solutions.
 
 
@@ -403,7 +403,7 @@ Portal.
   Enable Windows Auth for VMs|None required
   Deploy Microsoft Anti-malware to VMs|None required
   Domain Join VMs|Domain joining the Virtual Machines is a post deployment step and must be **manually** completed
-                                                  
+
 
 ## Deployment Process
 
@@ -417,7 +417,7 @@ that you immediately change both on all the VMs*. Click on each VM in the Azure 
 troubleshooting** blade.
 
 ## Deploy Networking Infrastructure
-  
+
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fvirtualnetwork.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
@@ -428,14 +428,14 @@ troubleshooting** blade.
 1. Click on the **Deploy to Azure** button to begin the first stage of the deployment. The link takes you to the Azure Portal.
 2. Select **Create New** and enter a value such as `uk-official-networking-rg` in the **Resource group** textbox.
 3. Select a region such as `UKSouth` from the **Location** drop down box (All Resource Groups required for this architecture should be in the same Azure region e.g. `UKSouth`
-4. Some parameters can be edited in the deployment page. If greater customisation is requried this can be down through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
+4. Some parameters can be edited in the deployment page. If greater customisation is required this can be down through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
 5. Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
 6. Click on the **Purchase** button.
 7. Check Azure portal notification for a message that the stage of deployment is complete and move on to the next if completed.
 8. If for some reason your deployment fails. To avoid incurring cost and orphan resources it is advisable to delete the resource group in its entirety, fix the issue and redeploy the resource groups and template.
 
 
-## Deploy Active Directory Domain 
+## Deploy Active Directory Domain
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Faads.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
@@ -458,7 +458,7 @@ troubleshooting** blade.
 ![alt text](images/create-official-aads-rg.JPG?raw=true "Create ADDS deployment")
 
 
-## Deploy operational workload infrastructure 
+## Deploy operational workload infrastructure
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fworkloads.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
@@ -482,7 +482,7 @@ troubleshooting** blade.
 
 
 
-##(Optional) PowerShell Deployment 
+##(Optional) PowerShell Deployment
 
 To deploy this solution through PowerShell, you will need the latest version of the Azure CLI to run the PowerShell script that deploys the solution. To deploy the reference architecture, follow these steps
 
@@ -495,7 +495,7 @@ To deploy this solution through PowerShell, you will need the latest version of 
 - `Infrastructure`: deploys the networking infrastructure
 - `ADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
 - `Operational`: deploys the web, business and data tier VMs and load balancers
-- `DeployAll`: deploys all the preceding deployments. 
+- `DeployAll`: deploys all the preceding deployments.
 
 UK Governments Private Network Connectivity
 ===========================================
