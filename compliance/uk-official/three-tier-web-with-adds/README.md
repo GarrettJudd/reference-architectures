@@ -1,4 +1,4 @@
-A Microsoft Azure Three Tier Web Application Architecture For Workloads Classified as UK-OFFICIAL.
+A Microsoft Azure Three Tier Web Application Architecture for Workloads Classified as UK-OFFICIAL.
 ===================================================================
 
 Contents
@@ -34,10 +34,10 @@ Overview
  (ARM) templates deploy an environment that aligns to the National Cyber Security Centre (NCSC) [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) and  the Center for Internet Security (CIS) [Critical Security
  Controls](https://www.cisecurity.org/critical-controls.cfm).
 
- The NCSC recommend their Cloud Security Principles be used by customers to evaluate the security properties of the service, and to help understand the division of responsibility between the customer and supplier. We’ve provided information against each of these principles to help you understand the split of responsibilities.
+ The NCSC recommend their Cloud Security Principles be used by customers to evaluate the security properties of the service, and to help understand the division of responsibility between the customer and supplier. Weâ€™ve provided information against each of these principles to help you understand the split of responsibilities.
 
- This architecture and corresponding ARM templates are underpinned by the Microsoft whitepaper [Azure Blueprint for the UK Government](https://aka.ms/azureblueprintukg-cloud). This paper catalogue how Azure services align with the fourteen
- cloud security principles set forth in the CESG/NCSC publication [Implementing the Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)"
+ This architecture and corresponding ARM templates are supported by the Microsoft whitepaper, [Azure Blueprint for the UK Government](https://aka.ms/azureblueprintukg-cloud). This paper catalogues how Azure services align with the fourteen
+ cloud security principles set forth in the CESG/NCSC publication, [Implementing the Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)"
  thereby enabling organisations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
 
  This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured.
@@ -114,7 +114,7 @@ Guidance and Recommendations
 > the activity log, metrics, and diagnostic logs of all your Azure
 > resources. Azure Monitor can be configured to visualize, query, route,
 > archive, and act on the metrics and logs coming from resources in
-> Azure. It is recommended that Resource Based Access Control is used to secure the audit trail to ensure that users don’t have the ability to modify the logs.
+> Azure. It is recommended that Resource Based Access Control is used to secure the audit trail to ensure that users donâ€™t have the ability to modify the logs.
 >
 > **Activity Logs**: Configure [Azure Activity
 > Logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
