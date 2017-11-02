@@ -487,7 +487,9 @@ troubleshooting** blade.
 9. Check Azure portal notification for a message that the stage of deployment is complete and move on to the next if completed.
 10. If for some reason your deployment fails. To avoid incurring cost and orphan resources it is advisable to delete the resource group in its entirety, fix the issue and redeploy the resource groups and template.
 
-![alt text](images/create-official-workload-rg.JPG?raw=true "Create ADDS deployment").
+> Note: The deployment includes default passwords if left unchanged. Please change these values before you deploy.
+
+![alt text](images/create-official-workload-rg.JPG?raw=true "Create ADDS deployment")
 
 
 UK Governments Private Network Connectivity
