@@ -11,7 +11,7 @@ Contents
 	- [Logging and Audit](#logging-and-audit)
 	- [Identity](#identity)
 	- [Security](#security)
-- [NCSC Security Matrix Compliance](#ncsc-security-matrix-compliance)
+- [NCSC Security Matrix Compliance Documentation](#ncsc-security-matrix-compliance-documentation)
 - [Deployment Guide](#deployment-guide)
 	-	[Deployment and Configuration Activities](#deployment-and-configuration-activities)
 	- [Method 1: Powershell Deployment Process](#method-1:-powershell-deployment-process)
@@ -317,19 +317,17 @@ Templates](https://github.com/mspnp/reference-architectures).
   Domain Join VMs|Domain joining the Virtual Machines is a post deployment step and must be **manually** completed.
 
 ## Method 1: PowerShell Deployment Process
-
-	To deploy this solution through PowerShell, you will need the latest version of the Azure Resource Manager module to run the PowerShell script that deploys the solution. To deploy the reference architecture, follow these steps:
-
-	1. Download or clone the solution folder from GitHub to your local machine.
-	2. Open a PowerShell Window and navigate to the \compliance\uk-official\three-tier-web-with-adds\ folder.
-	3. Run the following command:  `.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>`
-	4. Replace `<subscription id>` with your Azure subscription ID.
-	5. For `<location>`, specify an Azure region, such as `UKSouth` or `UKWest`.
-	6. The <mode> parameter controls the granularity of the deployment. The default value is DeployAll if no <mode> is selected. The <mode> can be one of the following values:
-	- `Infrastructure`: deploys the networking infrastructure
-	- `ADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
-	- `Operational`: deploys the web, business and data tier VMs and load balancers
-	- `DeployAll`: deploys all the preceding deployments.
+To deploy this solution through PowerShell, you will need the latest version of the Azure Resource Manager module to run the PowerShell script that deploys the solution. To deploy the reference architecture, follow these steps:
+1. Download or clone the solution folder from GitHub to your local machine.
+2. Open a PowerShell Window and navigate to the \compliance\uk-official\three-tier-web-with-adds\ folder.
+3. Run the following command:  `.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>`
+4. Replace `<subscription id>` with your Azure subscription ID.
+5. For `<location>`, specify an Azure region, such as `UKSouth` or `UKWest`.
+6. The <mode> parameter controls the granularity of the deployment. The default value is DeployAll if no <mode> is selected. The <mode> can be one of the following values:
+- `Infrastructure`: deploys the networking infrastructure
+- `ADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
+- `Operational`: deploys the web, business and data tier VMs and load balancers
+- `DeployAll`: deploys all the preceding deployments.
 
 > Note: The parameter files include hard-coded passwords in various places. It is strongly recommended that you change these values.
 > If the parameters files are not updated, the default values will be used which may not be compatible with your on-premises environment.
