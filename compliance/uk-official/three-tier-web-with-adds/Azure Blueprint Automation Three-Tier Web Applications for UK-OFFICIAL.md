@@ -33,7 +33,7 @@ Architecture Diagram and Components
 ![alt text](images/diagram.png?raw=true "Azure UK-OFFICAL Three Tier Architecture")
 
 
- This solution uses the following Azure services. Details of the deployment architecture are located in the deployment architecture section below.
+ This solution uses the following Azure services. Details of the deployment architecture are located in the deployment architecture section.
 
 (1) /16 Virtual Network – Operational VNet
 - (3) /24 subnets – 3-tier (Web, Biz, Data)
@@ -110,25 +110,24 @@ Load Balancer
 
 Storage
 - (14) Total Storage Accounts
-  - Active Directory Domain Controller Availability Set (AS)
+  - Active Directory Domain Controller Availability Set
     - (2) Primary Locally Redundant Storage (LRS) accounts – 1 for each VM  
-    - (1) Diagnostic Locally Redundant Storage (LRS) account for the ADDS AS
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the ADDS Availability Set
   - Management Jumpbox VM
     - (1) Primary Locally Redundant Storage (LRS) account for the Jumpbox VM
     - (1) Diagnostic Locally Redundant Storage (LRS) account for the Jumpbox VM
   - Web Tier VMs
     - (2) Primary Locally Redundant Storage (LRS) accounts – 1 for each VM  
-    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Web Tier AS
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Web Tier Availability Set
   - Biz Tier VMs
     - (2) Primary Locally Redundant Storage (LRS) accounts – 1 for each VM  
-    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Biz Tier AS
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Biz Tier Availability Set
   - Data Tier VMs
     - (2) Primary Locally Redundant Storage (LRS) accounts – 1 for each VM  
-    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Data Tier AS 
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Data Tier Availability Set
 
 
-
- Deployment Architecture:
+ ### Deployment Architecture:
 
 1.  **On-Premises Network**: A private local-area network implemented in an organisation.
 
