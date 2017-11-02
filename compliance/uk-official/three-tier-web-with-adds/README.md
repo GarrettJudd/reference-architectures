@@ -1,30 +1,6 @@
 Azure Blueprint Automation: Three-Tier Web Applications for UK-OFFICIAL
 ===================================================================
 
-Contents
-========
-
-- [Overview](#overview) 	
-- [Architecture Diagram and Components](#architecture-diagram-and-components)
-- [Guidance and Recommendations](#guidance-and-recommendations)
-	- [Business Continuity](#business-continuity)
-	- [Logging and Audit](#logging-and-audit)
-	- [Identity](#identity)
-	- [Security](#security)
-- [NCSC Security Matrix Compliance Documentation](#ncsc-security-matrix-compliance-documentation)
-- [Deployment Guide](#deployment-guide)
-	-	[Deployment and Configuration Activities](#deployment-and-configuration-activities)
-	- [Method 1: Powershell Deployment Process](#method-1:-powershell-deployment-process)
-	- [Method 2: Azure Portal Deployment Process](#method-2:-azure-portal-deployment-process)
-		- [Stage 1: Deploy Networking Infrastructure](#stage-1:-deploy-networking-infrastructure)
-		- [Stage 2: Deploy Active Directory Domain](#stage-2:-deploy-active-directory-domain)
-		- [Stage 3: Deploy Operational Workload Infrastructure](#stage-3:-deploy-operational-workload-infrastructure)
-- [UK Government Private Network Connectivity](#uk-government-private-network-connectivity)
-- [Cost](#cost)
-- [Further Reading](#further-reading)
-
-
-
 Overview
 ========
 
@@ -252,11 +228,11 @@ This UK-OFFICIAL Azure Blueprint Solution aligns to the 14 cloud security
  Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)
  to ensure an environment that supports workloads classified as UK-OFFICIAL.
 
- The Customer Responsibility Matrix (Excel Workbook) lists
+ The [Customer Responsibility Matrix](https://github.com/GarrettJudd/reference-architectures/blob/master/compliance/uk-official/three-tier-web-with-adds/Azure%20Blueprint%20-%20NCSC%20Cloud%20Security%20Principles%20-%20Customer%20Responsibilities%20Matrix.xlsx) (Excel Workbook) lists
  all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart),
  whether the principle implementation is the responsibility of Microsoft, the customer, or shared between the two.
 
- The Principle Implementation Matrix (Excel Workbook) lists all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart) that is designated a customer responsibility in the Customer Responsibilities Matrix, 1) if the Azure Blueprint Automation implements the principle, and 2) a description of how the implementation aligns with the principle requirement(s).
+ The [Principle Implementation Matrix](https://github.com/GarrettJudd/reference-architectures/blob/master/compliance/uk-official/three-tier-web-with-adds/Azure%20Blueprint%20Automation%20-%20Three-Tier%20Web%20Applications%20for%20UK-OFFICIAL%20-%20Principle%20Implementation%20Matrix%20.xlsx) (Excel Workbook) lists all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart) that is designated a customer responsibility in the Customer Responsibilities Matrix, 1) if the Azure Blueprint Automation implements the principle, and 2) a description of how the implementation aligns with the principle requirement(s).
  This content is also available [here](https://github.com/GarrettJudd/reference-architectures/blob/master/compliance/uk-official/three-tier-web-with-adds/NCSC%20Cloud%20Security%20Responsibility.md).
 
  Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matrix to support customers in the evaluation of cloud providers and to identify questions that should be
