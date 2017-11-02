@@ -33,7 +33,7 @@ Architecture Diagram and Components
 ![alt text](images/diagram.png?raw=true "Azure UK-OFFICAL Three Tier Architecture")
 
 
- This solution uses the following Azure services. Details of the deployment architecture are located in the deployment architecture section.
+ This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
 (1) /16 Virtual Network – Operational VNet
 - (3) /24 subnets – 3-tier (Web, Biz, Data)
