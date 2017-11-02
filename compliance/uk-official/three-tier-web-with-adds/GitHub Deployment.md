@@ -1,4 +1,9 @@
-Deployment Guide
+Solution overview
+================
+For more information about this solution, see [Azure Blueprint Automation: Three-Tier Web Applications for UK-OFFICIAL](https://github.com/GarrettJudd/reference-architectures/blob/master/compliance/uk-official/three-tier-web-with-adds/Azure%20Docs%20Overview.md)
+
+
+Deploy the solution
 ================
 These templates automatically deploy the Azure resources for a Windows based three-tier application with an Active Directory Domain architecture. **As this is a complex deployment that delivers the full infrastructure and environment,
 it can take up to two hours to deploy using the Azure Portal (Method 2).** Progress can be monitored from the Resource Group blade and Deployment output blade in the Azure
