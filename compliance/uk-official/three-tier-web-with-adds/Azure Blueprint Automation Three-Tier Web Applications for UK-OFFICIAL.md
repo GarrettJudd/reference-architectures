@@ -65,7 +65,7 @@ Architecture Diagram and Components
 
 
 
-(9)Virtual Machines - All VMs are deployed with Azure IaaS Antimalware DSC settings
+(9) Virtual Machines - All VMs are deployed with Azure IaaS Antimalware DSC settings
 
 - (2) Active Directory Domain Services Domain Controllers (Windows Server 2012 R2)
   - (2) DNS Server Roles – 1 per VM
