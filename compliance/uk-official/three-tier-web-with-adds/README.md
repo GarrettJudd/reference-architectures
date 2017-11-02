@@ -259,7 +259,7 @@ NCSC Security Matrix Compliance
 > Azure uses the industry-standard Transport Layer Security (TLS) 1.2 protocol with 2048-bit RSA/SHA256 encryption keys to encrypt
 communication internally, as well as between customers and the cloud.
 
-**Principle 2 | Asset Protection and Resilience** User data, and the assets storing or processing it, should be protected against physical tampering, loss, damage or seizure.
+**Principle 2 | Asset Protection and Resilience**: User data, and the assets storing or processing it, should be protected against physical tampering, loss, damage or seizure.
 > Most Azure services are deployed regionally, and customers can configure certain Azure services to store customer data only in a single region. Each facility is designed to run 24x7x365 and employs various industry-standard measures to help protect operations from power failure, physical intrusion, and network outages.
 > These datacentres comply with industry standards (e.g., ISO 27001) for physical security and availability. They are managed, monitored, and administered by Microsoft operations personnel. Azure offers a wide range of encryption capabilities, giving customers the flexibility to choose the solution that best meets their needs.
 > When customers delete data or leave Azure, Microsoft follows strict standards for overwriting storage resources before reuse. Upon a system's end-of-life,
@@ -345,15 +345,28 @@ of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment s
 
 Deployment Guide
 ================
-These templates automatically deploy the Azure resources for a multi-tier, Windows based three tier application with an Active Directory Domain architecture. **As this is a complex deployment that delivers the full infrastructure and environment configuration
-deployment can take up to two hours.** Progress can be monitored from the Resource Group blade and Deployment output blade in the Azure
+These templates automatically deploy the Azure resources for a Windows based three tier application with an Active Directory Domain architecture. **As this is a complex deployment that delivers the full infrastructure and environment,
+it can take up to two hours to deploy using the Azure Portal (Method 2).** Progress can be monitored from the Resource Group blade and Deployment output blade in the Azure
 Portal.
 
 > Rather than develop the templates for this environment from scratch, some templates used are drawn from the [Microsoft Patterns and
 > Practices GitHub Repository](https://github.com/mspnp) [Template
-> Building Blocks](https://github.com/mspnp/template-building-blocks)
-> and orchestrated through a an a master ARM template or PowerShell
-> script. Other Azure architectural best practices and guidance can be
+> Building Blocks](https://github.com/mspnp/template-building-blocks).
+> There are two methods that deployment users may use to deploy this Azure Blueprint reference architecture.
+> The first method uses a PowerShell script, whereas the second method utilizes Azure Portal to deploy the reference architecture.
+> These two methods are detailed in the sections below.
+
+ As a pre-requisite to deployment users should ensure that they have:
+
+- An Azure Subscription
+
+- Admin or co-admin rights for the Subscription
+
+- The Azure Subscription ID has been noted
+
+- The [latest version of PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) and the Azure Resource Manager module for PowerShell to execute the deployment script
+
+> Other Azure architectural best practices and guidance can be
 > found in [Azure Reference
 > Architectures](https://docs.microsoft.com/en-gb/azure/guidance/guidance-architecture).
 > Supporting Microsoft Visio templates are available from the [Microsoft
@@ -363,41 +376,45 @@ Portal.
 > Architectures ARM
 > Templates](https://github.com/mspnp/reference-architectures).
 
- As a pre-requisite to deployment users should ensure that they have -
-
-- An Azure Subscription
-
-- Admin or co-admin rights for the Subscription
-
-- The Azure Subscription ID has been noted
-
-- The [latest version of PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) to execute the deployment script
-
 ## Deployment and Configuration Activities
 
   Activity|Configuration|
   ---|---
-  Create Management VNet Resource Groups|Enter resource group name during deployment
-  Create Operational VNet Resource Groups|Enter resource group name during deployment
-  Deploy  VNet network infrastructure|Enter resource group name during deployment
-  Create VNet Peerings|None required|
-  Deploy VPN Gateway|The template deploys an Azure environment with a public facing endpoint and an Azure Gateway to allow VPN setup between the Azure environment and your on-premises environment. To complete this VPN connection, you will need to provide the Local Gateway (your on-premises VPN public IP address) and complete the VPN connection set up locally. VPN Gateway requires local gateway configuration in the [/parameters/azure/ops-network.parameters.json](/parameters/azure/ops-network.parameters.json) template parameters file  or through the Azure portal.                                    
-  Deploying internet facing Application Gateway|For SSL termination, Application Gateway requires you SSL certificates to be uploaded. When provisioned the Application Gateway will instantiate a public IP address and domain name to allow access to the web application
-  Create Network Security Groups for VNETs|RDP access to the Management VNet Jumpbox must be secured to a trusted IP address range. It is important to amend the "sourceAddressPrefix" parameter with your own trusted source IP address range in the [/parameters/azure/nsg-rules.parameters.json](/parameters/azure/nsg-rules.parameters.json) template parameters file. NSG configuration for the operational VNet can be found at [/parameters/azure/ops-vent-nsgs.json](/parameters/azure/ops-vent-nsgs.json)
-  Create ADDS resource group|Enter resource group name during deployment and edit the configuration fields if required
-  Deploying ADDS servers|None required
-  Updating DNS servers|None required
-  Create ADDS domain|The provided templates create a demo 'treyresearch' domain. To ensure that the required Active Directory Domain is created with the desired domain name and administrative user the fields can be configured in the deployment screen or in the [/parameters/azure/add-adds-domain-controller.parameters.json](/parameters/azure/add-adds-domain-controller.parameters.json) template parameters file must be edited with the required values
-  Create ADDS domain controller|None required
-  Create operational workload Resource Group|Enter resource group name during deployment
-  Deploy operational VM tiers and load balancers   |None required
-  Set up IIS web server role for web tier|None required
-  Enable Windows Auth for VMs|None required
-  Deploy Microsoft Anti-malware to VMs|None required
-  Domain Join VMs|Domain joining the Virtual Machines is a post deployment step and must be **manually** completed
+  Create Management VNet Resource Groups|Enter resource group name during deployment.
+  Create Operational VNet Resource Groups|Enter resource group name during deployment.
+  Deploy  VNet network infrastructure|Enter resource group name during deployment.
+  Create VNet Peerings|None required.|
+  Deploy VPN Gateway|The template deploys an Azure environment with a public facing endpoint and an Azure Gateway to allow VPN setup between the Azure environment and your on-premises environment. To complete this VPN connection, you will need to provide the Local Gateway (your on-premises VPN public IP address) and complete the VPN connection set up locally. VPN Gateway requires local gateway configuration in the [/parameters/azure/ops-network.parameters.json](/parameters/azure/ops-network.parameters.json) template parameters file  or through the Azure Portal.                                    
+  Deploying internet facing Application Gateway|For SSL termination, Application Gateway requires you SSL certificates to be uploaded. When provisioned, the Application Gateway will instantiate a public IP address and domain name to allow access to the web application.
+  Create Network Security Groups for VNETs|RDP access to the management VNet Jumpbox must be secured to a trusted IP address range. It is important to amend the "sourceAddressPrefix" parameter with your own trusted source IP address range in the [/parameters/azure/nsg-rules.parameters.json](/parameters/azure/nsg-rules.parameters.json) template parameters file. NSG configuration for the operational VNet can be found at [/parameters/azure/ops-vent-nsgs.json](/parameters/azure/ops-vent-nsgs.json).
+  Create ADDS resource group|Enter resource group name during deployment and edit the configuration fields if required.
+  Deploying ADDS servers|None required.
+  Updating DNS servers|None required.
+  Create ADDS domain|The provided templates create a demo 'treyresearch' domain. To ensure that the required Active Directory Domain is created with the desired domain name and administrative user the fields can be configured in the deployment screen or the [/parameters/azure/add-adds-domain-controller.parameters.json](/parameters/azure/add-adds-domain-controller.parameters.json) template parameters file must be edited with the required values.
+  Create ADDS domain controller|None required.
+  Create operational workload Resource Group|Enter resource group name during deployment.
+  Deploy operational VM tiers and load balancers   |None required.
+  Set up IIS web server role for web tier|None required.
+  Enable Windows Auth for VMs|None required.
+  Deploy Microsoft Anti-malware to VMs|None required.
+  Domain Join VMs|Domain joining the Virtual Machines is a post deployment step and must be **manually** completed.
 
+## Method 1: PowerShell Deployment Process
 
-## Deployment Process
+	To deploy this solution through PowerShell, you will need the latest version of the Azure CLI to run the PowerShell script that deploys the solution. To deploy the reference architecture, follow these steps
+
+	1. Download or clone the solution folder from GitHub to your local machine.
+	2. Open the Azure CLI and navigate to the local solution folder.
+	3. Run the following command:  `.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>`
+	4. Replace `<subscription id>` with your Azure subscription ID.
+	5. For `<location>`, specify an Azure region, such as `UKSouth` or `UKWest`.
+	6. The `<mode>` parameter controls the granularity of the deployment, and can be one of the following values:
+	- `Infrastructure`: deploys the networking infrastructure
+	- `ADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
+	- `Operational`: deploys the web, business and data tier VMs and load balancers
+	- `DeployAll`: deploys all the preceding deployments.
+
+## Method 2: Azure Portal Deployment Process
 
 A deployment for this reference architecture is available on
 [GitHub](https://github.com/mspnp/reference-architectures/tree/master/compliance/uk-official/three-tier-web-with-adds). The templates can be cloned or downloaded if customisation of parameters are requried.
@@ -472,22 +489,6 @@ troubleshooting** blade.
 
 ![alt text](images/create-official-workload-rg.JPG?raw=true "Create ADDS deployment").
 
-
-
-##(Optional) PowerShell Deployment
-
-To deploy this solution through PowerShell, you will need the latest version of the Azure CLI to run the PowerShell script that deploys the solution. To deploy the reference architecture, follow these steps
-
-1. Download or clone the solution folder from GitHub to your local machine.
-2. Open the Azure CLI and navigate to the local solution folder.
-3. Run the following command:  `.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>`
-4. Replace `<subscription id>` with your Azure subscription ID.
-5. For `<location>`, specify an Azure region, such as `UKSouth` or `UKWest`.
-6. The `<mode>` parameter controls the granularity of the deployment, and can be one of the following values:
-- `Infrastructure`: deploys the networking infrastructure
-- `ADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
-- `Operational`: deploys the web, business and data tier VMs and load balancers
-- `DeployAll`: deploys all the preceding deployments.
 
 UK Governments Private Network Connectivity
 ===========================================
