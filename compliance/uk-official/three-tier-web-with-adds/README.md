@@ -1,4 +1,4 @@
-A Microsoft Azure Three Tier Web Application Architecture for Workloads Classified as UK-OFFICIAL.
+A Microsoft Azure Three-Tier Web Application Architecture for Workloads Classified as UK-OFFICIAL.
 ===================================================================
 
 Contents
@@ -7,21 +7,21 @@ Contents
 - [Overview](#overview) 	
 - [Architecture Diagram and Components](#architecture-diagram-and-components)
 - [Guidance and Recommendations](#guidance-and-recommendations)
-	- [Business continuity](#business-continuity)
+	- [Business Continuity](#business-continuity)
 	- [Logging and Audit](#logging-and-audit)
 	- [Identity](#identity)
 	- [Security](#security)
 - [NCSC Security Matrix Compliance](#ncsc-security-matrix-compliance)
 - [Deployment Guide](#deployment-guide)
-- [Deployment and Configuration Activities](#deployment-and-configuration-activities)
-	- [Deployment Process](#deployment-process)
-	- [Deploy Networking Infrastructure](#deploy-networking-infrastructure)
-	- [Deploy Active Directory Domain](#deploy-active-directory-domain)
-	- [Deploy operational workload infrastructure](#deploy-operational-workload-infrastructure)
-	- [(Optional) PowerShell Deployment](#optional-powershell-deployment)
-- [UK Governments Private Network Connectivity](#uk-governments-private-network-connectivity)
+	-	[Deployment and Configuration Activities](#deployment-and-configuration-activities)
+	- [Method 1: Powershell Deployment Process](#method-1:-powershell-deployment-process)
+	- [Method 2: Azure Portal Deployment Process](#method-2:-azure-portal-deployment-process)
+		- [Stage 1: Deploy Networking Infrastructure](#stage-1:-deploy-networking-infrastructure)
+		- [Stage 2: Deploy Active Directory Domain](#stage-2:-deploy-active-directory-domain)
+		- [Stage 3: Deploy Operational Workload Infrastructure](#stage-3:-deploy-operational-workload-infrastructure)
+- [UK Government Private Network Connectivity](#uk-government-private-network-connectivity)
 - [Cost](#cost)
-- [Further reading](#further-reading)
+- [Further Reading](#further-reading)
 
 
 
@@ -37,7 +37,7 @@ Overview
  The NCSC recommend their Cloud Security Principles be used by customers to evaluate the security properties of the service, and to help understand the division of responsibility between the customer and supplier. We’ve provided information against each of these principles to help you understand the split of responsibilities.
 
  This architecture and corresponding ARM templates are supported by the Microsoft whitepaper, [Azure Blueprint for the UK Government](https://aka.ms/azureblueprintukg-cloud). This paper catalogues how Azure services align with the fourteen
- cloud security principles set forth in the CESG/NCSC publication, [Implementing the Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles).
+ cloud security principles set forth in the CESG/NCSC publication, [Implementing the Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles),
  thereby enabling organisations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
 
  This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured.
@@ -345,7 +345,7 @@ of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment s
 
 Deployment Guide
 ================
-These templates automatically deploy the Azure resources for a Windows based three tier application with an Active Directory Domain architecture. **As this is a complex deployment that delivers the full infrastructure and environment,
+These templates automatically deploy the Azure resources for a Windows based three-tier application with an Active Directory Domain architecture. **As this is a complex deployment that delivers the full infrastructure and environment,
 it can take up to two hours to deploy using the Azure Portal (Method 2).** Progress can be monitored from the Resource Group blade and Deployment output blade in the Azure
 Portal.
 
@@ -353,7 +353,7 @@ Rather than develop the templates for this environment from scratch, some templa
 Practices GitHub Repository](https://github.com/mspnp) [Template
 Building Blocks](https://github.com/mspnp/template-building-blocks).
 There are two methods that deployment users may use to deploy this Azure Blueprint reference architecture.
-The first method uses a PowerShell script, whereas the second method utilizes Azure Portal to deploy the reference architecture.
+The first method uses a PowerShell script, whereas the second method utilises Azure Portal to deploy the reference architecture.
 These two methods are detailed in the sections below.
 
  As a pre-requisite to deployment, users should ensure that they have:
@@ -412,7 +412,6 @@ Templates](https://github.com/mspnp/reference-architectures).
 	- `DeployAll`: deploys all the preceding deployments.
 
 > Note: The parameter files include hard-coded passwords in various places. It is strongly recommended that you change these values.
-
 > If the parameters files are not updated, the default values will be used which may not be compatible with your on-premises environment.
 
 
@@ -468,7 +467,7 @@ Check Azure portal notification for a message that the stage of deployment is co
 ![alt text](images/create-official-aads-rg.JPG?raw=true "Create ADDS deployment")
 
 
-## Stage 3: Deploy operational workload infrastructure
+## Stage 3: Deploy Operational Workload Infrastructure
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fworkloads.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
@@ -491,7 +490,7 @@ Check Azure portal notification for a message that the stage of deployment is co
 ![alt text](images/create-official-workload-rg.JPG?raw=true "Create ADDS deployment")
 
 
-UK Governments Private Network Connectivity
+UK Government Private Network Connectivity
 ===========================================
 
 Microsoft's customers are now able to use [private connections](https://news.microsoft.com/en-gb/2016/12/14/microsoft-now-offers-private-internet-connections-to-its-uk-data-centres/#sm.0001dca7sq10r1couwf4vvy9a85zx)
@@ -507,7 +506,7 @@ associated with all resources and offerings deployed as part of this
 template. For cost estimates, you can use the [Azure Pricing
 Calculator](https://azure.microsoft.com/en-us/pricing/calculator).
 
-Further reading
+Further Reading
 ===============
 
 Further best practice information and recommendations for configuring and securing a multi-tier application in Azure can be found in
