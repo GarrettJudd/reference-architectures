@@ -95,9 +95,36 @@ Architecture Diagram and Components
   - (2) NICs connected to Operational VNet – 1 per VM
   - Not domain-joined
 
+Availability Sets
+- (1) Active Directory Domain Controller VM set – 2 VMs
+- (1) Web Tier VM set – 2 VMs
+- (1) Biz Tier VM set – 2 VMs
+- (1) Data Tier VM set – 2 VMs
 
 
+Load Balancer
+- (1) Web Tier Load Balancer
+- (1) Biz Tier Load Balancer
+- (1) Data Tier Load Balancer
 
+
+Storage
+- (14) Total Storage Accounts
+  - Active Directory Domain Controller Availability Set (AS)
+    - (2) Primary Locally Redundant Storage (LRS) accounts – 1 for each VM  
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the ADDS AS
+  - Management Jumpbox VM
+    - (1) Primary Locally Redundant Storage (LRS) account for the Jumpbox VM
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Jumpbox VM
+  - Web Tier VMs
+    - (2) Primary Locally Redundant Storage (LRS) accounts – 1 for each VM  
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Web Tier AS
+  - Biz Tier VMs
+    - (2) Primary Locally Redundant Storage (LRS) accounts – 1 for each VM  
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Biz Tier AS
+  - Data Tier VMs
+    - (2) Primary Locally Redundant Storage (LRS) accounts – 1 for each VM  
+    - (1) Diagnostic Locally Redundant Storage (LRS) account for the Data Tier AS 
 
 
 
