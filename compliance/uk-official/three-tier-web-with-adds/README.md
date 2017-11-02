@@ -1,30 +1,6 @@
 Azure Blueprint Automation: Three-Tier Web Applications for UK-OFFICIAL
 ===================================================================
 
-Contents
-========
-
-- [Overview](#overview) 	
-- [Architecture Diagram and Components](#architecture-diagram-and-components)
-- [Guidance and Recommendations](#guidance-and-recommendations)
-	- [Business Continuity](#business-continuity)
-	- [Logging and Audit](#logging-and-audit)
-	- [Identity](#identity)
-	- [Security](#security)
-- [NCSC Security Matrix Compliance Documentation](#ncsc-security-matrix-compliance-documentation)
-- [Deployment Guide](#deployment-guide)
-	-	[Deployment and Configuration Activities](#deployment-and-configuration-activities)
-	- [Method 1: Powershell Deployment Process](#method-1:-powershell-deployment-process)
-	- [Method 2: Azure Portal Deployment Process](#method-2:-azure-portal-deployment-process)
-		- [Stage 1: Deploy Networking Infrastructure](#stage-1:-deploy-networking-infrastructure)
-		- [Stage 2: Deploy Active Directory Domain](#stage-2:-deploy-active-directory-domain)
-		- [Stage 3: Deploy Operational Workload Infrastructure](#stage-3:-deploy-operational-workload-infrastructure)
-- [UK Government Private Network Connectivity](#uk-government-private-network-connectivity)
-- [Cost](#cost)
-- [Further Reading](#further-reading)
-
-
-
 Overview
 ========
 
