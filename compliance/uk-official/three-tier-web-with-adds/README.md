@@ -349,32 +349,29 @@ These templates automatically deploy the Azure resources for a Windows based thr
 it can take up to two hours to deploy using the Azure Portal (Method 2).** Progress can be monitored from the Resource Group blade and Deployment output blade in the Azure
 Portal.
 
-> Rather than develop the templates for this environment from scratch, some templates used are drawn from the [Microsoft Patterns and
-> Practices GitHub Repository](https://github.com/mspnp) [Template
-> Building Blocks](https://github.com/mspnp/template-building-blocks).
-> There are two methods that deployment users may use to deploy this Azure Blueprint reference architecture.
-> The first method uses a PowerShell script, whereas the second method utilizes Azure Portal to deploy the reference architecture.
-> These two methods are detailed in the sections below.
+Rather than develop the templates for this environment from scratch, some templates used are drawn from the [Microsoft Patterns and
+Practices GitHub Repository](https://github.com/mspnp) [Template
+Building Blocks](https://github.com/mspnp/template-building-blocks).
+There are two methods that deployment users may use to deploy this Azure Blueprint reference architecture.
+The first method uses a PowerShell script, whereas the second method utilizes Azure Portal to deploy the reference architecture.
+These two methods are detailed in the sections below.
 
- As a pre-requisite to deployment users should ensure that they have:
+ As a pre-requisite to deployment, users should ensure that they have:
 
 - An Azure Subscription
-
 - Admin or co-admin rights for the Subscription
-
 - The Azure Subscription ID has been noted
+- The [latest version of PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) and the [Azure Resource Manager module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1) for PowerShell to execute the deployment script
 
-- The [latest version of PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) and the Azure Resource Manager module for PowerShell to execute the deployment script
-
-> Other Azure architectural best practices and guidance can be
-> found in [Azure Reference
-> Architectures](https://docs.microsoft.com/en-gb/azure/guidance/guidance-architecture).
-> Supporting Microsoft Visio templates are available from the [Microsoft
-> download
-> center](http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx)
-> with the corresponding ARM Templates found at [Azure Reference
-> Architectures ARM
-> Templates](https://github.com/mspnp/reference-architectures).
+Other Azure architectural best practices and guidance can be
+found in [Azure Reference
+Architectures](https://docs.microsoft.com/en-gb/azure/guidance/guidance-architecture).
+Supporting Microsoft Visio templates are available from the [Microsoft
+download
+center](http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx)
+with the corresponding ARM Templates found at [Azure Reference
+Architectures ARM
+Templates](https://github.com/mspnp/reference-architectures).
 
 ## Deployment and Configuration Activities
 
@@ -401,18 +398,23 @@ Portal.
 
 ## Method 1: PowerShell Deployment Process
 
-	To deploy this solution through PowerShell, you will need the latest version of the Azure CLI to run the PowerShell script that deploys the solution. To deploy the reference architecture, follow these steps
+	To deploy this solution through PowerShell, you will need the latest version of the Azure Resource Manager module to run the PowerShell script that deploys the solution. To deploy the reference architecture, follow these steps:
 
 	1. Download or clone the solution folder from GitHub to your local machine.
-	2. Open the Azure CLI and navigate to the local solution folder.
+	2. Open a PowerShell Window and navigate to the \compliance\uk-official\three-tier-web-with-adds\ folder.
 	3. Run the following command:  `.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>`
 	4. Replace `<subscription id>` with your Azure subscription ID.
 	5. For `<location>`, specify an Azure region, such as `UKSouth` or `UKWest`.
-	6. The `<mode>` parameter controls the granularity of the deployment, and can be one of the following values:
+	6. The <mode> parameter controls the granularity of the deployment. The default value is DeployAll if no <mode> is selected. The <mode> can be one of the following values:
 	- `Infrastructure`: deploys the networking infrastructure
 	- `ADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
 	- `Operational`: deploys the web, business and data tier VMs and load balancers
 	- `DeployAll`: deploys all the preceding deployments.
+
+> Note: The parameter files include hard-coded passwords in various places. It is strongly recommended that you change these values.
+
+> If the parameters files are not updated, the default values will be used which may not be compatible with your on-premises environment.
+
 
 ## Method 2: Azure Portal Deployment Process
 
@@ -420,7 +422,7 @@ A deployment for this reference architecture is available on
 [GitHub](https://github.com/mspnp/reference-architectures/tree/master/compliance/uk-official/three-tier-web-with-adds). The templates can be cloned or downloaded if customisation of parameters is requried.
 The reference architecture is deployed in three stages. To deploy the architecture, follow the steps below for each deployment stage.
 
-For Virtual Machines The parameter files include hard-coded
+For virtual machines, the parameter files include hard-coded
 administrator user names and passwords. These values can be changed in the parameter files if required. It is ***strongly recommended
 that you immediately change both on all the VMs***. Click on each VM in the Azure portal then click on **Reset password** in the **Support
 troubleshooting** blade.
@@ -430,13 +432,11 @@ troubleshooting** blade.
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fvirtualnetwork.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fvirtualnetwork.azuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.png"/>
-</a>
+
 
 1. Click on the **Deploy to Azure** button to begin the first stage of the deployment. The link takes you to the Azure Portal.
 2. Select **Create New** and enter a value such as `uk-official-networking-rg` in the **Resource group** textbox.
-3. Select a region such as `UKSouth` or `UKWest`, from the **Location** drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g. `UKSouth` or `UKWest`.
+3. Select a region such as `UKSouth` or `UKWest`, from the **Location** drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g., `UKSouth` or `UKWest`).
 4. Some parameters can be edited in the deployment page. For full compatibility with your on-premises environment, review the network parameters and customise your deployment, if necessary. If greater customisation is required, this can be done through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
 5. Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
 6. Click on the **Purchase** button.
@@ -448,14 +448,12 @@ troubleshooting** blade.
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Faads.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Faads.azuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.png"/>
-</a>
+
 
 
 1. Click on the **Deploy to Azure** button to begin the second stage of the deployment. The link takes you to the Azure Portal.
 2. Select **Create New** and enter a value such as `uk-official-adds-rg` in the **Resource group** textbox.
-3. Select a region such as `UKSouth` or `UKWest`, from the **Location** drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g. `UKSouth` or `UKWest`).
+3. Select a region such as `UKSouth` or `UKWest`, from the **Location** drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g., `UKSouth` or `UKWest`).
 4. Some domain parameters will need to be edited in the deployment page, otherwise default example values will be used. For full compatibility with your on-premises environment, review the domain parameters and customise your deployment, if necessary. If greater customisation is required, this can be done through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
 5. In the **Settings** textboxes, enter the networking resource group as entered when creating the networking infrastructure in deployment step 1.
 6. Enter the Domain settings and Admin credentials.
@@ -465,7 +463,7 @@ troubleshooting** blade.
 10.	If for some reason your deployment fails, it is advisable to delete the resource group in its entirety to avoid incurring cost and orphan resources, fix the issue, and redeploy the resource groups and template.
 Check Azure portal notification for a message that the stage of deployment is complete and move on to the next if completed.
 
-> **Note**: The deployment includes default passwords if left unchanged. Please change these values before you deploy.
+> **Note**: The deployment includes default passwords if left unchanged. It is strongly recommended that you change these values.
 
 ![alt text](images/create-official-aads-rg.JPG?raw=true "Create ADDS deployment")
 
@@ -474,14 +472,12 @@ Check Azure portal notification for a message that the stage of deployment is co
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fworkloads.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fworkloads.azuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.png"/>
-</a>
+
 
 
 1. Click on the **Deploy to Azure** button to begin the third stage of the deployment. The link takes you to the Azure Portal.
 2. Select **Create New** and enter a value such as `uk-official-operational-rg` in the **Resource group** textbox.
-3. Select a region, such as UKSouth or UKWest, from the Location drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g. UKSouth or UKWest).
+3. Select a region, such as UKSouth or UKWest, from the Location drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g., `UKSouth` or `UKWest`).
 4. Some parameters can be edited in the deployment page. If greater customisation is required, this can be done through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
 5. In the **Settings** textboxes, enter the operational network resource group as entered when creating the networking infrastructure in deployment step 1.
 6. Enter the Virtual Machine Admin credentials.
@@ -490,7 +486,7 @@ Check Azure portal notification for a message that the stage of deployment is co
 9. Check Azure Portal notifications for a message stating that this stage of deployment is complete.
 10. If for some reason your deployment fails, it is advisable to delete the resource group in its entirety to avoid incurring cost and orphan resources, fix the issue, and redeploy the resource groups and template.
 
-> **Note**: The deployment includes default passwords if left unchanged. Please change these values before you deploy.
+> **Note**: The deployment includes default passwords if left unchanged. It is strongly recommended that you change these values.
 
 ![alt text](images/create-official-workload-rg.JPG?raw=true "Create ADDS deployment")
 
