@@ -99,12 +99,12 @@ Guidance and Recommendations
 
 ### Business Continuity
 
-> **High Availability**: Server workloads are grouped in a [Availability
-> Set](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-> to ensure high availability of virtual machines in Azure. This
-> configuration ensures that during a planned or unplanned maintenance
-> event at least one virtual machine will be available and meet the
-> 99.95% Azure SLA.
+**High Availability**: Server workloads are grouped in a [Availability
+Set](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+to ensure high availability of virtual machines in Azure. This
+configuration ensures that during a planned or unplanned maintenance
+event at least one virtual machine will be available and meet the
+99.95% Azure SLA.
 
 ### Logging and Audit
 
