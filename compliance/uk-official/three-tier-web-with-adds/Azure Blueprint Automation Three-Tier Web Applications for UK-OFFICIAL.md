@@ -33,7 +33,75 @@ Architecture Diagram and Components
 ![alt text](images/diagram.png?raw=true "Azure UK-OFFICAL Three Tier Architecture")
 
 
- The components of this architecture include:
+ This solution uses the following Azure services. Details of the deployment architecture are located in the deployment architecture section below.
+
+(1) /16 Virtual Network – Operational VNet
+- (3) /24 subnets – 3-tier (Web, Biz, Data)
+- (1) /27 subnet – ADDS
+- (1) /27 subnet – Gateway Subnet
+- (1) /29 subnet – Application Gateway Subnet
+- Uses Default (Azure-Provided) DNS
+- Peering enabled to Management VNet
+- Network Security Group (NSG) for managing traffic flow
+
+(1) /24 Virtual Network – Management VNet
+- (1) /27 subnet
+- Uses (2) ADDS DNS and (1) Azure DNS entries
+- Peering enabled to Operational VNet
+- Network Security Group (NSG) for managing traffic flow
+
+(1) Application Gateway
+- WAF unsupported in default tier – need to upgrade to WAF tier if WAF is desired.
+- Firewall disabled
+- HTTP Listener on Port 80
+- Connectivity/Traffic regulated through NSG
+- Public IP address endpoint defined (Azure)
+
+(1) VPN - Route-based, Site-2-Site IPSec VPN tunnel
+- Public IP address endpoint defined (Azure)
+- Connectivity/Traffic regulated through NSG
+- (1) local network gateway (on-premises endpoint)
+- (1) Azure network gateway (Azure endpoint)
+
+
+
+(9)Virtual Machines - All VMs are deployed with Azure IaaS Antimalware DSC settings
+
+- (2) Active Directory Domain Services Domain Controllers (Windows Server 2012 R2)
+  - (2) DNS Server Roles – 1 per VM
+  - (2) NICs connected to Operational VNet – 1 per VM
+  - Both are domain-joined to the domain defined in the template
+    - Domain created as a part of the deployment
+
+
+- (1) Jumpbox (Bastion Host) Management VM
+  - 1 NIC on the Management VNet with Public IP address
+    - NSG is used for limiting traffic (in/out) to specific sources
+  - Not domain-joined
+
+
+- (2) Web Tier VMs
+  - (2) IIS Server Roles – 1 per VM
+  - (2) NICs connected to Operational VNet – 1 per VM
+  - Not domain-joined
+
+
+- (2) Biz Tier VMs
+  - (2) NICs connected to Operational VNet – 1 per VM
+  - Not domain-joined
+
+
+- (2) Data Tier VMs
+  - (2) NICs connected to Operational VNet – 1 per VM
+  - Not domain-joined
+
+
+
+
+
+
+
+ Deployment Architecture:
 
 1.  **On-Premises Network**: A private local-area network implemented in an organisation.
 
