@@ -84,7 +84,7 @@ Architecture Diagram and Components
 
 12. **Network Security Groups**: [NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a VNet. NSGs can be used to secure traffic at a subnet or individual VM level.
 
-13. **Active Directory Domain Services (AD DS)**: This architecture provides a dedicated [Active Directory Domain Services](https://technet.microsoft.com/en-us/library/hh831484(v=ws.11).aspx) deployment.
+13. **Active Directory Domain Services (AD DS)**: This architecture provides a dedicated [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) deployment.
 
 14. **Logging and Audit**: [Azure Activity Log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) captures operations
 taken on the resources in your subscription such as who initiated the operation, when the operation occurred, the status of the operation and the values of other properties that might help you research the operation.
