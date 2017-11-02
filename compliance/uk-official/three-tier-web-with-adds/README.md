@@ -1,4 +1,4 @@
-A Microsoft Azure Three-Tier Web Application Architecture for Workloads Classified as UK-OFFICIAL.
+Azure Blueprint Automation: Three-Tier Web Applications for UK-OFFICIAL
 ===================================================================
 
 Contents
@@ -59,7 +59,7 @@ Architecture Diagram and Components
 
  The components of this architecture include:
 
-1.  **On-Premises Network**: A private local-area network implemented in an organization.
+1.  **On-Premises Network**: A private local-area network implemented in an organisation.
 
 2.  **Production VNet**: The Production [VNet](https://docs.microsoft.com/en-us/azure/Virtual-Network/virtual-networks-overview) (Virtual Network) hosts the application and other operational resources running in Azure. Each VNet may contain several subnets which are used for isolating and managing network traffic.
 
@@ -240,108 +240,28 @@ It is recommended that customers enable Azure Security Center in their
 Azure Subscription.
 
 
-NCSC Security Matrix Compliance
+NCSC Security Matrix Compliance Documentation
 ===============
-
- This UK-OFFICIAL Azure template aligns to the 14 cloud security
- principles that are documented in the NCSC [Cloud Security
- Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)
- to ensure an environment that supports workloads classified as
- UK-OFFICIAL.
-
- The following matrix provides a high-level alignment of the 14 cloud security principles to the Microsoft Azure security model. Additionally, a detailed
- mapping of the 14 principles can be found in Microsoft's [Azure Blueprint for the UK Government](https://aka.ms/azureblueprintukg-cloud)
- whitepaper.
-
- ---
-
-**Principle 1 | Data in Transit Protection**: User data transiting networks should be adequately protected against tampering and eavesdropping.
-> Azure uses the industry-standard Transport Layer Security (TLS) 1.2 protocol with 2048-bit RSA/SHA256 encryption keys to encrypt
-communication internally, as well as between customers and the cloud.
-
-**Principle 2 | Asset Protection and Resilience**: User data, and the assets storing or processing it, should be protected against physical tampering, loss, damage or seizure.
-> Most Azure services are deployed regionally, and customers can configure certain Azure services to store customer data only in a single region. Each facility is designed to run 24x7x365 and employs various industry-standard measures to help protect operations from power failure, physical intrusion, and network outages.
-> These datacentres comply with industry standards (e.g., ISO 27001) for physical security and availability. They are managed, monitored, and administered by Microsoft operations personnel. Azure offers a wide range of encryption capabilities, giving customers the flexibility to choose the solution that best meets their needs.
-> When customers delete data or leave Azure, Microsoft follows strict standards for overwriting storage resources before reuse. Upon a system's end-of-life,
-> Microsoft operational personnel follow rigorous data handling procedures and hardware disposal processes to help assure that no hardware that may contain customer data is made available to untrusted parties.                                                                                                                                                                                                                                         
-> To ensure data resiliency Azure asynchronously replicates data from a primary location to a secondary location within the same region.
-> For application resiliency, the Microsoft Azure infrastructure ensures that at least one virtual machine will be available and meet the 99.95% Azure SLA.
-
-**Principle 3 | Separation Between Users**: A malicious or compromised user of the service should not be able to affect the service or data of another.
-> Because all customer cloud servers are virtual, the physical separation paradigm no longer applies.
-> Microsoft Azure was designed to help identify and counter risks inherent in a multitenant environment.
-> Data storage and processing is logically segregated among users of Azure using Active Directory and functionalities specifically
-> developed for multitenant services, which aim to ensure that user data stored in shared Azure datacentres is not accessible by
-> another organisation.
-
-**Principle 4 | Governance Framework**: The service provider should have a security governance framework which coordinates and directs its management of the service and information within it. Any technical controls deployed outside of this framework will be fundamentally undermined.
-> The Microsoft compliance framework includes the following activities:
-
-> 1.  Identify and integrate requirements.
-
-> 2.  Assess and remediate gaps.
-
-> 3.  Test effectiveness and assess risk.
-
-> 4.  Attain certification and attestations.
-
-> 5.  Improve and optimize.
-
-**Principle 5 | Operational Security**: The service needs to be operated and managed securely in order to impede, detect or prevent attacks. Good operational security should not require complex, bureaucratic, time consuming or expensive processes.
-> Operational Security Assurance (OSA) is a framework that incorporates the knowledge gained through a variety of resources that are unique to Microsoft,
-> such as the Microsoft Security Response Center (MSRC), and incorporates deep awareness of the cybersecurity threat landscape.
-> OSA helps make Microsoft cloud-based services' infrastructure more resilient to attack by decreasing the amount of time needed to prevent, detect, contain
-> and respond to real and potential Internet-based security threats, thereby increasing the security of those services for customers.
-
-**Principle 6 | Personnel Security**: Where service provider personnel have access to your data and systems you need a high degree of confidence in their trustworthiness. Thorough screening, supported by adequate training, reduces the likelihood of accidental or malicious compromise by service provider personnel.
-> Microsoft Azure Operations and Customer Support personnel and datacentre staff, who operate Azure services and provide customer support (or Microsoft subcontractors
-> who assist with platform operations, troubleshooting, and technical support) undergo a Microsoft standard background check or equivalent to evaluate employee
-> education, employment, and criminal history. The background checks that are carried out are broadly in line with the requirements of the UK Government's
-> BPSS / BS7858. They do not specifically include a formal identity check.
-
-**Principle 7 | Secure Development**: Services should be designed and developed to identify and mitigate threats to their security. Those which aren’t may be vulnerable to security issues which could compromise your data, cause loss of service or enable other malicious activity.
-> The Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl/default.aspx) (SDL) provides an effective threat-modelling process to identify
->  threats and vulnerabilities in software and services. The STRIDE system (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, and
-> Elevation of privilege) is used to help identify and resolve security threats early in the design process, before they can affect customers.
-
-**Principle 8 | Supply Chain Security**: The service provider should ensure that its supply chain satisfactorily supports all of the security principles which the service claims to implement.                                                       
-> In Azure, security risks that relate to external parties, such as customers and vendors, are identified and addressed as follows:
-
-> 1.  Third parties undergo a review process and an approved vendor list is established and used. These vendors are required to comply with Microsoft security policies and are audited.
-
-> 2.  Additional risks related to granting physical and network level access to facilities, information systems, and Microsoft resources are controlled and managed by Microsoft teams.
-
-**Principle 9 | Secure User Management**: Your provider should make the tools available for you to securely manage your use of their service. Management interfaces and procedures are a vital part of the security barrier, preventing unauthorised access and alteration of your resources, applications and data.
-> Customers administer their Azure resources through the Azure portal, which provides access to all virtual machines, databases, cloud services, and
-> other resources configured for the customer's account. Web access to the Azure portal is secured by industry-standard Transport Layer Security (TLS) 1.2
-> connections using 2048-bit RSA/SHA256 encryption keys, as recommended by CESG/NCSC. Role-based access controls are provided to enable customers to provide
-> limited access to Azure management resources for specific users and groups.
-
-**Principle 10 | Identity and Authentication**: All access to service interfaces should be constrained to authenticated and authorised individuals.
-> Azure provides services to help track identity as well as integrate it with identity stores that may already be in use. Azure Active Directory (AAD) is a comprehensive identity and access management service for the cloud that helps secure access to data in on-premises and cloud applications.
-
-**Principle 11 | External Interface Protection**: All external or less trusted interfaces of the service should be identified and appropriately defended.
-> Microsoft employs a method it calls 'Red Teaming' to improve Azure security controls and processes through regular penetration testing.
-
-**Principle 12 | Secure Service Administration**: Systems used for administration of a cloud service will have highly privileged access to that service. Their compromise would have significant impact, including the means to bypass security controls and steal or manipulate large volumes of data.
-> Azure infrastructure operations personnel are required to use secure admin workstations (SAWs; also known as privileged access workstations, or PAWs). The SAW approach is an extension of the well-established recommended practice to use separate admin and user accounts for administrative personnel.
-
-**Principle 13 | Audit Information for Users**: You should be provided with the audit records needed to monitor access to your service and the data held within it. The type of audit information available to you will have a direct impact on your ability to detect and respond to inappropriate or malicious activity within reasonable timescales.
-> Azure Log Analytics collects records of the events occurring within an organisation's systems and networks as soon as they occur, before anyone can tamper with them, and allows different types of analysis by correlating data across multiple computers.
-
-**Principle 14 | Secure Use of the Service**: The security of cloud services and the data held within them can be undermined if you use the service poorly. Consequently, you will have certain responsibilities when using the service in order for your data to be adequately protected.
-> Azure Security Center helps consumers prevent, detect, and respond to threats with increased visibility into and control over the security of their Azure resources.
-> It provides integrated security monitoring and policy management across Azure subscriptions, helps detect threats that might otherwise go unnoticed,
-> and works with a broad ecosystem of security solutions.
-
-
-The CSA published the Cloud Control Matrix to support customers in the evaluation of cloud providers and to identify questions that should be
-answered before moving to cloud services. In response, Microsoft Azure answered the CSA Consensus Assessment Initiative Questionnaire ([CSA CAIQ](https://aka.ms/csacaiqresponsesto)), which describes how Microsoft
-addresses the suggested principles.
 
 The Crown Commercial Service (an agency that works to improve commercial and procurement activity by the government) renewed the
 classification of Microsoft in-scope enterprise cloud services to  G-Cloud v6, covering all its offerings at the OFFICIAL level. Details
 of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment summary](https://www.microsoft.com/en-us/trustcenter/Compliance/UK-G-Cloud?downloadDocument=1&documentId=b4ed7712-d221-4a9c-ad0b-b36cf0d83eae).
+
+This UK-OFFICIAL Azure Blueprint Solution aligns to the 14 cloud security
+ principles that are documented in the NCSC [Cloud Security
+ Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)
+ to ensure an environment that supports workloads classified as UK-OFFICIAL.
+
+ The Customer Responsibility Matrix (Excel Workbook) lists
+ all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart),
+ whether the principle implementation is the responsibility of Microsoft, the customer, or shared between the two.
+
+ The Principle Implementation Matrix (Excel Workbook) lists all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart) that is designated a customer responsibility in the Customer Responsibilities Matrix, 1) if the Azure Blueprint Automation implements the principle, and 2) a description of how the implementation aligns with the principle requirement(s).
+ This content is also available [here](https://github.com/GarrettJudd/reference-architectures/blob/master/compliance/uk-official/three-tier-web-with-adds/NCSC%20Cloud%20Security%20Responsibility.md).
+
+ Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matrix to support customers in the evaluation of cloud providers and to identify questions that should be
+ answered before moving to cloud services. In response, Microsoft Azure answered the CSA Consensus Assessment Initiative Questionnaire ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), which describes how Microsoft
+ addresses the suggested principles.
 
 Deployment Guide
 ================
