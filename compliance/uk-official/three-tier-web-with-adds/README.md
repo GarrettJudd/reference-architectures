@@ -417,15 +417,15 @@ Portal.
 ## Method 2: Azure Portal Deployment Process
 
 A deployment for this reference architecture is available on
-[GitHub](https://github.com/mspnp/reference-architectures/tree/master/compliance/uk-official/three-tier-web-with-adds). The templates can be cloned or downloaded if customisation of parameters are requried.
-The reference architecture is deployed in four stages. To deploy the architecture, follow these steps for each deployment stage -
+[GitHub](https://github.com/mspnp/reference-architectures/tree/master/compliance/uk-official/three-tier-web-with-adds). The templates can be cloned or downloaded if customisation of parameters is requried.
+The reference architecture is deployed in three stages. To deploy the architecture, follow the steps below for each deployment stage.
 
-For Virtual Machines The parameter files include a hard-coded
-administrator user names and passwords. These values can be changed in the parameter files if required. Tt is *strongly recommended
-that you immediately change both on all the VMs*. Click on each VM in the Azure portal then click on **Reset password** in the **Support
+For Virtual Machines The parameter files include hard-coded
+administrator user names and passwords. These values can be changed in the parameter files if required. It is ***strongly recommended
+that you immediately change both on all the VMs***. Click on each VM in the Azure portal then click on **Reset password** in the **Support
 troubleshooting** blade.
 
-## Deploy Networking Infrastructure
+## Stage 1: Deploy Networking Infrastructure
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fvirtualnetwork.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
@@ -436,15 +436,15 @@ troubleshooting** blade.
 
 1. Click on the **Deploy to Azure** button to begin the first stage of the deployment. The link takes you to the Azure Portal.
 2. Select **Create New** and enter a value such as `uk-official-networking-rg` in the **Resource group** textbox.
-3. Select a region such as `UKSouth` from the **Location** drop down box (All Resource Groups required for this architecture should be in the same Azure region e.g. `UKSouth`
-4. Some parameters can be edited in the deployment page. If greater customisation is required this can be down through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
+3. Select a region such as `UKSouth` or `UKWest`, from the **Location** drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g. `UKSouth` or `UKWest`.
+4. Some parameters can be edited in the deployment page. For full compatibility with your on-premises environment, review the network parameters and customise your deployment, if necessary. If greater customisation is required, this can be done through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
 5. Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
 6. Click on the **Purchase** button.
-7. Check Azure portal notification for a message that the stage of deployment is complete and move on to the next if completed.
-8. If for some reason your deployment fails. To avoid incurring cost and orphan resources it is advisable to delete the resource group in its entirety, fix the issue and redeploy the resource groups and template.
+7. Check the Azure Portal notifications for a message stating that this stage of deployment is complete, and proceed to the next deployment stage if completed.
+8. If for some reason your deployment fails, it is advisable to delete the resource group in its entirety to avoid incurring cost and orphan resources, fix the issue, and redeploy the resource groups and template.
 
 
-## Deploy Active Directory Domain
+## Stage 2: Deploy Active Directory Domain
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Faads.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
@@ -453,21 +453,24 @@ troubleshooting** blade.
 </a>
 
 
-1. Click on the **Deploy to Azure** button to begin the first stage of the deployment. The link takes you to the Azure Portal.
+1. Click on the **Deploy to Azure** button to begin the second stage of the deployment. The link takes you to the Azure Portal.
 2. Select **Create New** and enter a value such as `uk-official-adds-rg` in the **Resource group** textbox.
-3. Select a region such as `UKSouth` from the **Location** drop down box (All Resource Groups required for this architecture should be in the same Azure region e.g. `UKSouth`.
-4. Some parameters can be edited in the deployment page. If greater customisation is required this can be down through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
+3. Select a region such as `UKSouth` or `UKWest`, from the **Location** drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g. `UKSouth` or `UKWest`).
+4. Some domain parameters will need to be edited in the deployment page, otherwise default example values will be used. For full compatibility with your on-premises environment, review the domain parameters and customise your deployment, if necessary. If greater customisation is required, this can be done through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
 5. In the **Settings** textboxes, enter the networking resource group as entered when creating the networking infrastructure in deployment step 1.
 6. Enter the Domain settings and Admin credentials.
-7. Review the terms and conditions, then click the **I agree to the terms and conditions stated above* checkbox.
+7. Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
 8. Click on the **Purchase** button.
-9. Check Azure portal notification for a message that the stage of deployment is complete and move on to the next if completed.
-10. If for some reason your deployment fails. To avoid incurring cost and orphan resources it is advisable to delete the resource group in its entirety, fix the issue and redeploy the resource groups and template.
+9. Check Azure Portal notifications for a message stating that this stage of deployment is complete, and proceed to the next deployment stage if completed.
+10.	If for some reason your deployment fails, it is advisable to delete the resource group in its entirety to avoid incurring cost and orphan resources, fix the issue, and redeploy the resource groups and template.
+Check Azure portal notification for a message that the stage of deployment is complete and move on to the next if completed.
+
+> **Note**: The deployment includes default passwords if left unchanged. Please change these values before you deploy.
 
 ![alt text](images/create-official-aads-rg.JPG?raw=true "Create ADDS deployment")
 
 
-## Deploy operational workload infrastructure
+## Stage 3: Deploy operational workload infrastructure
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fcompliance%2Fuk-official%2Fthree-tier-web-with-adds%2Ftemplates%2Fworkloads.azuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
@@ -476,18 +479,18 @@ troubleshooting** blade.
 </a>
 
 
-1. Click on the **Deploy to Azure** button to begin the first stage of the deployment. The link takes you to the Azure Portal.
+1. Click on the **Deploy to Azure** button to begin the third stage of the deployment. The link takes you to the Azure Portal.
 2. Select **Create New** and enter a value such as `uk-official-operational-rg` in the **Resource group** textbox.
-3. Select a region such as `UKSouth` from the **Location** drop down box (All Resource Groups required for this architecture should be in the same Azure region e.g. `UKSouth`
-4. Some parameters can be edited in the deployment page. If greater customisation is requried this can be down through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
+3. Select a region, such as UKSouth or UKWest, from the Location drop down box. All Resource Groups required for this architecture should be in the same Azure region (e.g. UKSouth or UKWest).
+4. Some parameters can be edited in the deployment page. If greater customisation is required, this can be done through cloning and editing the templates directly, or in situ by editing the templates by clicking 'Edit template'.
 5. In the **Settings** textboxes, enter the operational network resource group as entered when creating the networking infrastructure in deployment step 1.
 6. Enter the Virtual Machine Admin credentials.
 7. Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
 8. Click on the **Purchase** button.
-9. Check Azure portal notification for a message that the stage of deployment is complete and move on to the next if completed.
-10. If for some reason your deployment fails. To avoid incurring cost and orphan resources it is advisable to delete the resource group in its entirety, fix the issue and redeploy the resource groups and template.
+9. Check Azure Portal notifications for a message stating that this stage of deployment is complete.
+10. If for some reason your deployment fails, it is advisable to delete the resource group in its entirety to avoid incurring cost and orphan resources, fix the issue, and redeploy the resource groups and template.
 
-> Note: The deployment includes default passwords if left unchanged. Please change these values before you deploy.
+> **Note**: The deployment includes default passwords if left unchanged. Please change these values before you deploy.
 
 ![alt text](images/create-official-workload-rg.JPG?raw=true "Create ADDS deployment")
 
