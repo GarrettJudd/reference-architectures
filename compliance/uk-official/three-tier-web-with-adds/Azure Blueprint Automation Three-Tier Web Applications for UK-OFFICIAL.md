@@ -51,8 +51,9 @@ Architecture Diagram and Components
 - Network Security Group (NSG) for managing traffic flow
 
 (1) Application Gateway
-- WAF unsupported in default tier – need to upgrade to WAF tier if WAF is desired.
-- Firewall disabled
+- WAF - enabled
+- WAF Mode - Prevention
+- Rule set: OWASP 3.0
 - HTTP Listener on Port 80
 - Connectivity/Traffic regulated through NSG
 - Public IP address endpoint defined (Azure)
