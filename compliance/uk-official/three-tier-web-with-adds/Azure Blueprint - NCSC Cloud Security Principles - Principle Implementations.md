@@ -275,7 +275,7 @@ The service provider should subject personnel to security screening and regular 
 
  ## National&nbsp;Cyber&nbsp;Security&nbsp;Centre&nbsp;(NCSC):&nbsp;Cloud&nbsp;Security&nbsp;Principle 7
 ### Secure Development
-Services should be designed and developed to identify and mitigate threats to their security. Those which aren�t may be vulnerable to security issues which could compromise your data, cause loss of service or enable other malicious activity.
+Services should be designed and developed to identify and mitigate threats to their security. Those which aren't may be vulnerable to security issues which could compromise your data, cause loss of service or enable other malicious activity.
 
 
 **Responsibilities:** `Shared`
