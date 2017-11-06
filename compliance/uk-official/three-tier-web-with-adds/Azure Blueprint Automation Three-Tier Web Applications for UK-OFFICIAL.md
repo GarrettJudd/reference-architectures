@@ -315,7 +315,7 @@ NCSC Security Matrix Compliance Documentation
 
 The Crown Commercial Service (an agency that works to improve commercial and procurement activity by the government) renewed the
 classification of Microsoft in-scope enterprise cloud services to  G-Cloud v6, covering all its offerings at the OFFICIAL level. Details
-of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment summary](https://www.microsoft.com/trustcenter/Compliance/UK-G-Cloud?downloadDocument=1&documentId=b4ed7712-d221-4a9c-ad0b-b36cf0d83eae).
+of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment summary](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
 
 This UK-OFFICIAL Azure Blueprint Solution aligns to the 14 cloud security
  principles that are documented in the NCSC [Cloud Security
