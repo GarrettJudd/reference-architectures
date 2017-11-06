@@ -138,7 +138,7 @@ Services have varying levels of resilience, which will affect their ability to o
 |||
 |---|---|
 | **Customer** | The customer is responsible for establishing an alternate storage site. The customer control implementation statement should address the customer's ability to operate in the event of an incident. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft Azure has UK G-Cloud approved datacentres in different geographical locations (UK South and UK West) in order to provide resilience and availability. It will be the customer's responsibility to reserve capacity in an alternate region using Azure's Site Recovery service. Once they have configured Azure Site Recovery, Azure will start and stop the customer's services in a seamless transition to the alternate processing site. |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft Azure has UK National Cyber Security Centre (NCSC) approved datacentres in different geographical locations (UK South and UK West) in order to provide resilience and availability. It will be the customer's responsibility to reserve capacity in an alternate region using Azure's Site Recovery service. Once they have configured Azure Site Recovery, Azure will start and stop the customer's services in a seamless transition to the alternate processing site. |
 
 
  ## National&nbsp;Cyber&nbsp;Security&nbsp;Centre&nbsp;(NCSC):&nbsp;Cloud&nbsp;Security&nbsp;Principle 3
